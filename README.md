@@ -99,12 +99,68 @@ The project has two microservices: profile and songs. The profiles data is store
 ---
 ### Songs Microservice
 #### Create
+* description: Returns the response to the POST API for adding the song when given `songName`, `songArtistFullName` and `songAlbum`
+* request: `POST /addSong?songName={songName}&songArtistFullName={songArtistFullName}&songAlbum={songAlbum}`
+    * `songName` - name of the song
+    * `songArtistFullName` - name of the artist of the song
+    * `songAlbum` - name of the album to which the song belongs to
+* response: 200
+    * body: Song inserted successfully
+* response: 500
+    * body: Missing required parameters
+    * body: Empty Song was passed in
+    * body: Issue while inserting song
 ---
 #### Read
+* description: Returns the response to the GET API for getting the song when given an id
+* request: `GET /getSongById/{songId}`
+    * `songId` - The id for the song you want to get
+* response: 200
+    * body: OK
+* response: 404
+    * body: NOT FOUND
+* response: 500
+    * body: Empty id is passed in
+    * body: Invalid ObjectId
+---
+* description: Returns the response to the GET API for getting the song title when given an id
+* request: `GET /getSongTitleById/{songId}`
+    * `songId` - The id for the song you want to get
+* response: 200
+    * body: OK
+* response: 404
+    * body: NOT FOUND
+* response: 500
+    * body: Empty id is passed in
+    * body: Invalid ObjectId
 ---
 #### Update
+* description: Returns the response to the PUT API for updating the favourite count of the song when provided with the id
+* request: `PUT /updateSongFavouritesCount/{songId}?shouldDecrement={true/false}`
+    * `songId` - The id for the song you want to update
+    * `shouldDecrement ` - set to true, if you want to decrease the favourite count. Otherwise, false
+* response: 200
+    * body: OK
+* response: 404
+    * body: Song not found
+* response: 500
+    * body: Missing required parameters
+    * body: Empty id is passed in
+    * body: Invalid ObjectId
+    * body: Cannot unlike a song that you did not like
+    * body: Issue while updating the favourite number
 ---
 #### Delete
+* description: Returns the response to the DELETE API for deleting the song provided the song id
+* request: `DELETE /deleteSongById/{songId}`
+    * `songId` - The id for the song you want to delete
+* response: 200
+    * body: OK
+* response: 404
+    * body: NOT FOUND
+* response: 500
+    * body: Empty id is passed in
+    * body: Invalid ObjectId
 ---
 ## How to run the project?
 * Download [Neo4j](https://neo4j.com/download/, "Download Link for Neo4j") and [MongoDB](https://www.mongodb.com/download-center/community, "Download Link for MongoDB").
