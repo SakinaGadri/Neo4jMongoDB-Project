@@ -10,11 +10,14 @@ The project has two microservices: profile and songs. The profiles data is store
 ### Profile MicroService
 #### Create
 * description: Adds a new user profile to the database.
-* request: `POST /profile?userName={{userName}}&fullName={{fullName}}&password={{password}}`
+* request: `POST /profile?userName={userName}&fullName={fullName}&password={password}`
 * response: 200
-    * body: OK
+    * body: User added to DB
+* response: 404
+    * body: User already exist in the DB
 * response: 500
-    * body: Server side error
+    * body: Missing Parameters
+    * body: User not added to DB
 ---
 
 #### Read
@@ -22,9 +25,14 @@ The project has two microservices: profile and songs. The profiles data is store
 * request: `GET /getAllFriendFavouriteSongTitles/{userName}`
     * `username` - the user who's friends to find
 * response: 200
-    * body: OK
+    * body: User doesn't follow anyone
+    * body: All songs in friends' playlists returned
+* response: 404
+    * body: User doesn't exist in the DB
 * response: 500
     * body: Connection to Songs getSongTitleById API unavailable
+    * body: Missing Parameters
+    * body: Something went wrong
 ---
 
 #### Update
@@ -33,11 +41,13 @@ The project has two microservices: profile and songs. The profiles data is store
     * `username` - the userName of the profile who will follow
     * `friendUserName` - the userName of the profile to be followed
 * response: 200
-    * body: OK
+    * body: `userName` is now following `friendUserName`
 * response: 404
-    * body: `username`/`friendUserName` not found
+    * body: User not in DB
 * response: 500
-    * body: Server Side error
+    * body: Missing Parameters
+    * body: Relationship already exists in the DB
+    * body: Relationship not added to DB
 ---
 
 * description: Makes one user unfollow another in the DB, assuming they already follow each other. (Only removed relationship from A to B, not B to A.)
@@ -45,11 +55,14 @@ The project has two microservices: profile and songs. The profiles data is store
     * `username` - the userName of the profile who will follow
     * `friendUserName` - the userName of the profile to be followed
 * response: 200
-    * body: OK
+    * body: `userName` has now unfollowed `friendUserName`
 * response: 404
-    * body: `username`/`friendUserName` not found
+    * body: Relationship doesn't exist in the DB
+    * body: User not in DB
 * response: 500
-    * body: Server Side error
+    * body: Missing Parameters
+    * body: User cannot unfollow themself
+    * body: Relationship not removed from DB
 ---
 
 * description: Likes song and adds it to the user's playlist.
@@ -85,7 +98,14 @@ The project has two microservices: profile and songs. The profiles data is store
     * body: Server side error
 ---
 ### Songs Microservice
-
+#### Create
+---
+#### Read
+---
+#### Update
+---
+#### Delete
+---
 ## How to run the project?
 * Download [Neo4j](https://neo4j.com/download/, "Download Link for Neo4j") and [MongoDB](https://www.mongodb.com/download-center/community, "Download Link for MongoDB").
 * The run `mvn compile` and `mvn exec:java`. 
