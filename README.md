@@ -1,6 +1,6 @@
 # Neo4j and MongoDB Project
 
-This project was authored by [Sakina Gadriwala](http://github.com/SakinaGadri/, "Github Profile") and [Seemin Syed](https://github.com/SeeminSyed, "Github Profile")
+This project was authored by [Sakina Gadriwala](http://github.com/SakinaGadri/, "Github Profile") and [Seemin Syed](https://github.com/SeeminSyed/, "Github Profile")
 
 ## Overview:
 The project has two microservices: profile and songs. The profiles data is stored in [Neo4j](https://neo4j.com/docs/driver-manual/current/, "Neo4j Documentation") and the songs data is stored in [MongoDB](https://docs.mongodb.com/manual/, "MongoDB Documentation").
