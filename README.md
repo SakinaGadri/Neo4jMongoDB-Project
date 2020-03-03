@@ -1,9 +1,9 @@
 # Neo4j and MongoDB Project
 
-This project was authored by [Sakina Gadriwala](http://github.com/SakinaGadri/, "Github Profile") and [Seemin Syed](https://github.com/SeeminSyed/ "Github Profile")
+This project was authored by [Sakina Gadriwala](http://github.com/SakinaGadri/ "Github Profile") and [Seemin Syed](https://github.com/SeeminSyed/ "Github Profile")
 
 ## Overview:
-The project has two microservices: profile and songs. The profiles data is stored in [Neo4j](https://neo4j.com/docs/driver-manual/current/, "Neo4j Documentation") and the songs data is stored in [MongoDB](https://docs.mongodb.com/manual/, "MongoDB Documentation").
+The project has two microservices: profile and songs. The profiles data is stored in [Neo4j](https://neo4j.com/docs/driver-manual/current/ "Neo4j Documentation") and the songs data is stored in [MongoDB](https://docs.mongodb.com/manual/ "MongoDB Documentation").
 
 ## APIs
 
@@ -163,8 +163,8 @@ The project has two microservices: profile and songs. The profiles data is store
     * body: Invalid ObjectId
 ---
 ## How to run the project?
-* Download [Neo4j](https://neo4j.com/download/, "Download Link for Neo4j") and [MongoDB](https://www.mongodb.com/download-center/community, "Download Link for MongoDB").
+* Download [Neo4j](https://neo4j.com/download/ "Download Link for Neo4j") and [MongoDB](https://www.mongodb.com/download-center/community "Download Link for MongoDB").
 * The run `mvn compile` and `mvn exec:java`. 
 * The Profile Service are accessible on port `3002`. The Songs Service is accessible on port `3001`.
-* Use [`curl`](http://www.mit.edu/afs.new/sipb/user/ssen/src/curl-7.11.1/docs/curl.html, "curl Documentation") or [Postman](https://www.postman.com/downloads/, "Download Postman") to interact with the APIs.
+* Use [`curl`](http://www.mit.edu/afs.new/sipb/user/ssen/src/curl-7.11.1/docs/curl.html "curl Documentation") or [Postman](https://www.postman.com/downloads/ "Download Postman") to interact with the APIs.
 * Enjoy!😄 
